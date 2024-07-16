@@ -10,7 +10,7 @@ import cors from 'cors'
 const app = express();
 // Permitimos que los dominios se comuniquen. 
 app.use(cors({
-    origin: 'http://localhost:5173',
+    origin: '*',
     credentials:true //Agregamos las credencias que le pasa axios. PERMITIDO 
 }))
 // App usa morgan y muestranos la configuracion por consola "dev"
