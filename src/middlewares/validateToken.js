@@ -8,7 +8,7 @@ export const authRequired = (req, res, next) => {
   const { token } = req.cookies;
  
   if (!token) return res.status(400).json({ messaege: "No autorizado" });
-
+console.log(token)
   jwt.verify(token, TOKEN_SECRET, (err, user ) => {
     if (err) return res.status(400).json({ messaege: "invalid token" });
     // Guardo todo dentro del req.user. ESTO con el fin de al pasar al controller se pase con el user guardado

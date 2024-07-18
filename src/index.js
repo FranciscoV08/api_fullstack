@@ -2,7 +2,7 @@
 import app from "./app.js";
 import { connectDB } from "./db.js";
 
-const port = process.env.PORT || 300;
+const port = process.env.PORT || 3000;
 console.log(port)
 // Primero la coneccion a db
 connectDB()
