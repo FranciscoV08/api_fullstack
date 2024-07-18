@@ -2,10 +2,12 @@
 import app from "./app.js";
 import { connectDB } from "./db.js";
 
+const port = process.env.PORT || 4000;
+console.log(port)
 // Primero la coneccion a db
 connectDB()
 // Levantar el servidor 
-app.listen(4000)
+app.listen(port)
 
 
-console.log('http://localhost:4000/')
+console.log(`http://localhost:${port}`)
