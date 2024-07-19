@@ -124,7 +124,7 @@ export const verifyToken = async (req, res) => {
 
     const userFound = await User.findById(user.id);
     if(!userFound) return res.status(401).json({
-      message: "No autorizado "
+      message: "No autorizado de verify"
     })
     
     return res.json({

@@ -2,24 +2,33 @@ import Task from '../models/task_model.js'
 
 // obtenes tareas y como se que sera una consulta a la db necesito que sea asincrona 
 export const getTasks = async (req, res) => {
-    // busca todas las tareas  
-    const tasks = await Task.find({
-        user: req.user.id
-    })
-    // console.log()
-    res.json(tasks);
+    try {     
+        // busca todas las tareas  
+        const tasks = await Task.find({
+            user: req.user.id
+        })
+        // console.log()
+        res.json(tasks);
+    } catch (error) {
+        res.status(400).json({message: "Error en getTasks"})
+        // console.log(error)
+    }
 }
 
 export const createTask = async (req, res) => {
     const { title, description, date} = req.body;
-    const newTask = new Task({
-        title,
-        description,
-        date, 
-        user: req.user.id
-    })
-    const saveTask = await newTask.save()
-    res.json(saveTask)
+    try {
+        const newTask = new Task({
+            title,
+            description,
+            date, 
+            user: req.user.id
+        })
+        const saveTask = await newTask.save()
+        res.json(saveTask)
+    } catch (error) {
+        res.status(400).json({message: "Error en createTask"})
+    }
 }
 
 export const getTask = async (req, res) => {
