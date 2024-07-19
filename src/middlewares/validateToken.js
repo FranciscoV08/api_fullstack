@@ -7,7 +7,7 @@ export const authRequired = (req, res, next) => {
   // res.json({"message": "Estamos en Validate Token "})
   const { token } = req.cookies;
  
-  if (!token) return res.status(400).json({ messaege: "No autorizado" });
+  if (!token) return res.status(400).json({ messaege: "No autorizado de validate Tokenjs" });
 console.log(token)
   jwt.verify(token, TOKEN_SECRET, (err, user ) => {
     if (err) return res.status(400).json({ messaege: "invalid token" });
